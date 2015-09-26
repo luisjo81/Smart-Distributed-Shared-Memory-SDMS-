@@ -13,9 +13,9 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=so
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart_distributed_shared_memory
-OUTPUT_BASENAME=smart_distributed_shared_memory
-PACKAGE_TOP_DIR=smartdistributedsharedmemory/
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart-distributed-shared-memory-sdms
+OUTPUT_BASENAME=smart-distributed-shared-memory-sdms
+PACKAGE_TOP_DIR=smart-distributed-shared-memory-sdms/
 
 # Functions
 function checkReturnCode
@@ -60,15 +60,15 @@ mkdir -p ${NBTMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory "${NBTMPDIR}/smartdistributedsharedmemory/bin"
+makeDirectory "${NBTMPDIR}/smart-distributed-shared-memory-sdms/bin"
 copyFileToTmpDir "${OUTPUT_PATH}" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/smartdistributedsharedmemory.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/smart-distributed-shared-memory-sdms.tar
 cd ${NBTMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/smartdistributedsharedmemory.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/smart-distributed-shared-memory-sdms.tar *
 checkReturnCode
 
 # Cleanup
