@@ -28,11 +28,11 @@ public:
     
     void update(Observable *, void *);
     
-    char * d_calloc(std::string&);
-    char * d_get(std::string&);
-    char * d_set(std::string&);
-    char * d_free(std::string&);
-    char * d_status();
+    std::string d_calloc(char *, std::string);
+    std::string d_get(char * , std::string);
+    std::string d_set(char * ,std::string);
+    std::string d_free(char *, std::string);
+    std::string d_status();
     
 private:
     void * heap;

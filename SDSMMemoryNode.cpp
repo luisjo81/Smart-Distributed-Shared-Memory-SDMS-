@@ -27,22 +27,26 @@ void SDSMMemoryNode::update(Observable* obs, void* msg){
     
     char * clientID =  &request.substr(request.length() - 11, 11)[0];
     
-    if(request.find("d_calloc") != request.npos){
+    int commandIndex;
+    
+    if((commandIndex = request.find("d_calloc:")) != request.npos){
         ((Server *) obs)->sendMessage(clientID ,
-                d_calloc(request));
-    }else if(request.find("d_get") != request.npos){
+                d_calloc(clientID, request.substr(commandIndex, request.length() - 11)));
+    }else if((commandIndex =request.find("d_get:")) != request.npos){
         ((Server *) obs)->sendMessage(clientID ,
-                d_get(request));
-    }else if(request.find("d_set") != request.npos){
+                d_get(clientID, request.substr(commandIndex, request.length() - 11)));
+    }else if((commandIndex = request.find("d_set:")) != request.npos){
         ((Server *) obs)->sendMessage(clientID ,
-                d_set(request));
-    }else if(request.find("d_free") != request.npos){
+                d_set(clientID, request.substr(commandIndex, request.length() - 11)));
+    }else if((commandIndex = request.find("d_free:")) != request.npos){
         ((Server *) obs)->sendMessage(clientID ,
-                d_free(request));
-    }else if(request.find("d_status") != request.npos){
+                d_free(clientID, request.substr(commandIndex, request.length() - 11)));
+    }else if((commandIndex = request.find("d_status:")) != request.npos){
         ((Server *) obs)->sendMessage(clientID ,
                 d_status());
     }
+    
+    free(clientID);
 }
 
 void * SDSMMemoryNode::run(void * param){
@@ -52,22 +56,50 @@ void * SDSMMemoryNode::run(void * param){
     }   
 }
 
-char * SDSMMemoryNode::d_calloc(std::string&){
+std::string SDSMMemoryNode::d_calloc(char *, std::string pSize){
     
 }
 
-char * SDSMMemoryNode::d_free(std::string& toFree){
+std::string SDSMMemoryNode::d_free(char * clientID, std::string toFree){
     d_pointer_size pointer = (void *) toFree.data();
+    reference ref = refTable.searchByPointer((void *) pointer.pointer);
+    
+    if(ref.ownerID == clientID){
+        refTable.deleteRef(ref);
+        return std::string("0\0");        
+    }else{
+        return std::string("2\0");
+    }
 }
 
-char * SDSMMemoryNode::d_get(std::string&){
-
+std::string SDSMMemoryNode::d_get(char * clientID, std::string toRetrieve){
+    d_pointer_size pointer = (void *) toRetrieve.data();
+    reference ref = refTable.searchByPointer((void *) pointer.pointer);
+    
+    if(ref.ownerID == clientID && ref.size == pointer.size){
+        char * byteStream = char * ((void *) pointer.pointer)+ heap;
+        return std::string("0").append(byteStream, pointer.size).append("\0");       
+    }else{
+        return std::string("2\0");
+    }
 }
 
-char * SDSMMemoryNode::d_set(std::string&){
-
+std::string SDSMMemoryNode::d_set(char * clientID, std::string toChange){
+    d_pointer_size pointer = (void *) toChange.substr(0,sizeof(d_pointer_size)).data();
+    reference ref = refTable.searchByPointer((void *) pointer.pointer);
+    
+    if(ref.ownerID == clientID && ref.size == pointer.size){
+        void * position = heap + ((void *) pointer.pointer);
+        
+        memcpy(position, toChange.substr(sizeof(d_pointer_size)).data(), ref.size);
+        
+        return std::string("0\0");       
+    }else{
+        return std::string("2\0");
+    }
+    
 }
 
-char * SDSMMemoryNode::d_status(){
+std::string SDSMMemoryNode::d_status(){
 
 }

@@ -148,7 +148,7 @@ void * Server::ioHandler(void* param) {
                     recv(cliente.fileDescriptor, msgBuffer, msgSize, NULL);
 
                     memcpy(msgBuffer, cliente.ID, 11);
-                    msgBuffer[msgSize + 10] = '\n';
+                    msgBuffer[msgSize + 10] = '\0';
 
                     server->notify(msgBuffer);
 

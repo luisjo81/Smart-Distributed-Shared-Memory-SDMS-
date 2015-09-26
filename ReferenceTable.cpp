@@ -13,8 +13,12 @@ ReferenceTable::ReferenceTable() {
 ReferenceTable::~ReferenceTable() {
 }
 
+void ReferenceTable::deleteRef(reference& toDelete){
+    references.erase(toDelete.pos);
+}
+
 reference ReferenceTable::searchByOwner(char* ID){
-    for(std::list<reference>::iterator iterator = references.begin();
+    for(std::vector<reference>::iterator iterator = references.begin();
             iterator != references.end() ;++iterator){
         if((* iterator).ownerID == ID){
             return *iterator;
@@ -23,7 +27,7 @@ reference ReferenceTable::searchByOwner(char* ID){
 }
 
 reference ReferenceTable::searchByPointer(void* pointer){
-    for(std::list<reference>::iterator iterator = references.begin();
+    for(std::vector<reference>::iterator iterator = references.begin();
             iterator != references.end() ;++iterator){
         if((* iterator).pointer == pointer){
             return *iterator;

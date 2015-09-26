@@ -5,15 +5,16 @@
  * Created on September 25, 2015, 7:43 PM
  */
 
-#include <list>
+#include <vector>
 
 #ifndef REFERENCETABLE_H
 #define	REFERENCETABLE_H
 
 struct reference{
     void * pointer;
-    int size;
+    long size;
     char * ownerID;
+    int pos;
 };
 
 class ReferenceTable {
@@ -21,11 +22,13 @@ public:
     ReferenceTable();
     virtual ~ReferenceTable();
     
-    reference searchByPointer(void *);
-    reference searchByOwner(char *);
+    void deleteRef(reference&);
+    
+    reference& searchByPointer(void *);
+    reference& searchByOwner(char *);
     
 private:
-    std::list<reference> references;
+    std::vector<reference> references;
     
     
     
