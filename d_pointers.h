@@ -26,10 +26,6 @@ struct d_pointer {
         return (this->machine == otherPointer.machine
                 && this->pointer == otherPointer.pointer);
     }
-
-    operator void *() {
-        return &machine;
-    }
 };
 
 struct d_pointer_size : public d_pointer {
@@ -48,6 +44,17 @@ struct d_pointer_size : public d_pointer {
 struct d_pointer_size_type : public d_pointer_size {
     char references;
     char type;
+    
+    d_pointer_size_type(void * pointer) : d_pointer_size::d_pointer_size(pointer){
+        references = *(char *)(pointer + sizeof(int) * 2 + sizeof(long));
+        type = *(char *)(pointer + sizeof(int) * 2 + sizeof(long) + sizeof(char));
+        
+    }
+    
+    virtual d_pointer_size_type& operator = (void * pointer){
+        references = *(char *)(pointer + sizeof(int) * 2 + sizeof(long));
+        type = *(char *)(pointer + sizeof(int) * 2 + sizeof(long) + sizeof(char));
+    }
 };
 #endif	/* D_POINTERS_H */
 
