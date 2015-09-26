@@ -8,13 +8,21 @@
 #ifndef D_POINTERS_H
 #define	D_POINTERS_H
 
+
+
 struct d_pointer {
+    
     int machine;
     int pointer;
     
     d_pointer(void * pointer){
         machine = * (int *)pointer;
         this->pointer = *(int *)(pointer + sizeof (int));
+    }
+    
+    d_pointer(d_pointer& orig){
+        this->machine = orig.machine;
+        this->pointer = orig.pointer;
     }
 
     virtual d_pointer& operator=(void * pointer) {
@@ -26,9 +34,14 @@ struct d_pointer {
         return (this->machine == otherPointer.machine
                 && this->pointer == otherPointer.pointer);
     }
+    
 };
 
 struct d_pointer_size : public d_pointer {
+    
+    d_pointer_size(d_pointer_size& orig) : d_pointer::d_pointer(orig){
+        this->size = orig.size;
+    }
     long size;
     
     d_pointer_size(void * pointer) : d_pointer::d_pointer(pointer){
@@ -41,7 +54,15 @@ struct d_pointer_size : public d_pointer {
     }
 };
 
+
+
 struct d_pointer_size_type : public d_pointer_size {
+    
+    d_pointer_size_type(d_pointer_size_type& orig): d_pointer_size::d_pointer (orig){
+        this->references = orig.references;
+        this->type = orig.type;
+    }
+    
     char references;
     char type;
     
