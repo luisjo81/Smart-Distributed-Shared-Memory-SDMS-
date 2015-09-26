@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observable.h</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observer.h</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/ReferenceTable.h</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/SDSMMemoryNode.h</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/Server.h</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeap.h</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeapReferenceTable.h</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/d_pointers.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observable.cpp</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observer.cpp</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/ReferenceTable.cpp</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/SDSMMemoryNode.cpp</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/Server.cpp</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeap.cpp</itemPath>
+      <itemPath>/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeapReferenceTable.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibStdlibItem>PosixThreads</linkerLibStdlibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/ReferenceTable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/ReferenceTable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/SDSMMemoryNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/SDSMMemoryNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Server.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Server.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeap.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeap.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeapReferenceTable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeapReferenceTable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/d_pointers.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Observer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/ReferenceTable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/ReferenceTable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/SDSMMemoryNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/SDSMMemoryNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Server.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/Server.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeap.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeap.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeapReferenceTable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/dHeapReferenceTable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/david/NetBeansProjects/Smart Distributed Shared Memory/d_pointers.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
