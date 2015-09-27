@@ -61,7 +61,7 @@ std::string SDSMMemoryNode::d_calloc(char *, std::string pSize){
 }
 
 std::string SDSMMemoryNode::d_free(char * clientID, std::string toFree){
-    d_pointer_size pointer = (void *) toFree.data();
+    d_pointer_size pointer((void *) toFree.data());
     reference ref = refTable.searchByPointer((void *) pointer.pointer);
     
     if(ref.ownerID == clientID){
@@ -73,11 +73,11 @@ std::string SDSMMemoryNode::d_free(char * clientID, std::string toFree){
 }
 
 std::string SDSMMemoryNode::d_get(char * clientID, std::string toRetrieve){
-    d_pointer_size pointer = (void *) toRetrieve.data();
+    d_pointer_size pointer((void *) toRetrieve.data());
     reference ref = refTable.searchByPointer((void *) pointer.pointer);
     
     if(ref.ownerID == clientID && ref.size == pointer.size){
-        char * byteStream = char * ((void *) pointer.pointer)+ heap;
+        char * byteStream = (char *)(pointer.pointer + (int) heap);
         return std::string("0").append(byteStream, pointer.size).append("\0");       
     }else{
         return std::string("2\0");
@@ -85,11 +85,11 @@ std::string SDSMMemoryNode::d_get(char * clientID, std::string toRetrieve){
 }
 
 std::string SDSMMemoryNode::d_set(char * clientID, std::string toChange){
-    d_pointer_size pointer = (void *) toChange.substr(0,sizeof(d_pointer_size)).data();
+    d_pointer_size pointer((void *) toChange.substr(0,sizeof(d_pointer_size)).data());
     reference ref = refTable.searchByPointer((void *) pointer.pointer);
     
     if(ref.ownerID == clientID && ref.size == pointer.size){
-        void * position = heap + ((void *) pointer.pointer);
+        void * position =(void *) ((int) heap + pointer.pointer);
         
         memcpy(position, toChange.substr(sizeof(d_pointer_size)).data(), ref.size);
         

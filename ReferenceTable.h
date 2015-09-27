@@ -24,8 +24,8 @@ public:
     
     void deleteRef(reference&);
     
-    reference& searchByPointer(void *);
-    reference& searchByOwner(char *);
+    reference& searchByPointer(void * pointer);
+    reference& searchByOwner(char * ID);
     
 private:
     std::vector<reference> references;

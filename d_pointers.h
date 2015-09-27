@@ -15,12 +15,12 @@ struct d_pointer {
     int machine;
     int pointer;
     
-    d_pointer(void * pointer){
+    explicit d_pointer(void * pointer){
         machine = * (int *)pointer;
         this->pointer = *(int *)(pointer + sizeof (int));
     }
     
-    d_pointer(d_pointer& orig){
+    explicit d_pointer(d_pointer& orig){
         this->machine = orig.machine;
         this->pointer = orig.pointer;
     }
@@ -39,12 +39,12 @@ struct d_pointer {
 
 struct d_pointer_size : public d_pointer {
     
-    d_pointer_size(d_pointer_size& orig) : d_pointer::d_pointer(orig){
+    explicit d_pointer_size(d_pointer_size& orig) : d_pointer::d_pointer(orig){
         this->size = orig.size;
     }
     long size;
     
-    d_pointer_size(void * pointer) : d_pointer::d_pointer(pointer){
+    explicit d_pointer_size(void * pointer) : d_pointer::d_pointer(pointer){
         size = *(long *)(pointer + sizeof(int) * 2);
     }
     
@@ -58,7 +58,7 @@ struct d_pointer_size : public d_pointer {
 
 struct d_pointer_size_type : public d_pointer_size {
     
-    d_pointer_size_type(d_pointer_size_type& orig): d_pointer_size::d_pointer (orig){
+    d_pointer_size_type(d_pointer_size_type& orig): d_pointer_size::d_pointer_size(orig){
         this->references = orig.references;
         this->type = orig.type;
     }
