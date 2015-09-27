@@ -17,6 +17,8 @@ class dHeap{
     
     friend d_pointer& operator++(d_pointer&);
     friend d_pointer& operator++(d_pointer&, int);
+    friend d_pointer& operator--(d_pointer&);
+    friend d_pointer& operator--(d_pointer&, int);
     
 public:
     

@@ -19,7 +19,6 @@ dHeap* dHeap::Instance()
 
 }
 
-bool dHeap::openLogFile(std::string logFile)
 
 dHeap::dHeap(char * path) {
 }
@@ -29,7 +28,7 @@ dHeap::~dHeap() {
 
 d_pointer& operator ++(d_pointer& pointer){
     
-    dHeapReferenceTable heapReferenceTable = dHeap.Instance()->reference;
+    dHeapReferenceTable heapReferenceTable = dHeap::Instance()->reference;
     
     pointer(heapReferenceTable.findAfterReference(
             heapReferenceTable.searchByPointer(pointer)));
@@ -39,7 +38,7 @@ d_pointer& operator ++(d_pointer& pointer){
 
 d_pointer& operator --(d_pointer& pointer){
     
-    dHeapReferenceTable heapReferenceTable = dHeap.Instance()->reference;
+    dHeapReferenceTable heapReferenceTable = dHeap::Instance()->reference;
     
     pointer(heapReferenceTable.findBeforeReference(
             heapReferenceTable.searchByPointer(pointer)));
@@ -50,7 +49,9 @@ d_pointer& operator --(d_pointer& pointer){
 
 d_pointer& operator ++(d_pointer& pointer, int){
     
-    d_pointer temp = heapReferenceTable.searchByPointer(pointer);
+    dHeapReferenceTable heapReferenceTable = dHeap::Instance()->reference;
+    
+    d_pointer temp = (d_pointer) heapReferenceTable.searchByPointer(pointer).pointer;
     
     pointer = heapReferenceTable.findAfterReference(
             heapReferenceTable.searchByPointer(pointer));
@@ -60,10 +61,11 @@ d_pointer& operator ++(d_pointer& pointer, int){
     
 d_pointer& operator --(d_pointer& pointer, int){
     
-    d_pointer temp = heapReferenceTable.searchByPointer(pointer);
+    dHeapReferenceTable heapReferenceTable = dHeap::Instance()->reference;
     
-    pointer = heapReferenceTable.findBeforeReference(
-            heapReferenceTable.searchByPointer(pointer));
+    d_pointer temp = (d_pointer) heapReferenceTable.searchByPointer(pointer).pointer;
+    
+    pointer = heapReferenceTable.findBeforeReference(heapReferenceTable.searchByPointer(pointer)).pointer;
     
     return temp;
 }

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Smart-Distributed-Shared-Memory-SDMS
+PROJECTNAME=Smart Distributed Shared Memory
 
 # Active Configuration
 DEFAULTCONF=Debug

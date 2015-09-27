@@ -13,8 +13,8 @@ x/*
 #define	DHEAPREFERENCE_H
 
 struct dHeapReference{
-    int ID;
     d_pointer_size_type pointer;
+    int ID;
 };
 
 class dHeapReferenceTable {
@@ -24,8 +24,8 @@ public:
     
     dHeapReference searchByPointer(d_pointer& pointerToFind);
     
-    dHeapReference findAfterReference(dHeapReference );
-    dHeapReference findBeforeReference(dHeapReference );
+    dHeapReference findAfterReference(dHeapReference&  reference);
+    dHeapReference findBeforeReference(dHeapReference& reference);
     
 private:
     

@@ -7,8 +7,17 @@
 
 #include "dHeapReferenceTable.h"
 
-dHeapReferenceTable::dHeapReferenceTable() {
+dHeapReferenceTable::dHeapReferenceTable() : references() {
 }
 
 dHeapReferenceTable::~dHeapReferenceTable() {
+}
+
+dHeapReference dHeapReferenceTable::searchByPointer(d_pointer& pointerToFind) {
+}
+
+dHeapReference dHeapReferenceTable::findAfterReference(dHeapReference&) {
+}
+
+dHeapReference dHeapReferenceTable::findBeforeReference(dHeapReference&) {
 }

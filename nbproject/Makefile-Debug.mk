@@ -63,11 +63,11 @@ LDLIBSOPTIONS=-lpthread
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart-distributed-shared-memory-sdms
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart_distributed_shared_memory
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart-distributed-shared-memory-sdms: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart_distributed_shared_memory: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart-distributed-shared-memory-sdms ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart_distributed_shared_memory ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/_ext/1264606667/Observable.o: /home/david/NetBeansProjects/Smart\ Distributed\ Shared\ Memory/Observable.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1264606667
@@ -115,7 +115,7 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart-distributed-shared-memory-sdms
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/smart_distributed_shared_memory
 
 # Subprojects
 .clean-subprojects:
