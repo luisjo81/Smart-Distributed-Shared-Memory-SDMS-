@@ -12,19 +12,3 @@ dHeapReferenceTable::dHeapReferenceTable() {
 
 dHeapReferenceTable::~dHeapReferenceTable() {
 }
-
-d_pointer& operator ++(d_pointer& pointer){
-    
-}
-
-d_pointer& operator --(d_pointer& pointer){
-    
-}
-
-d_pointer& operator ++(d_pointer& pointer, int){
-    
-}
-
-d_pointer& operator --(d_pointer& pointer, int){
-    
-}

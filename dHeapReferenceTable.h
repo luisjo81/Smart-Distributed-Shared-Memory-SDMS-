@@ -1,11 +1,11 @@
-/* 
+x/* 
  * File:   dHeapReference.h
  * Author: 
  *
  * Created on September 26, 2015, 1:45 PM
  */
 
-#include <list>
+#include <vector>
 
 #include "d_pointers.h"
 
@@ -21,9 +21,15 @@ class dHeapReferenceTable {
 public:
     dHeapReferenceTable();
     virtual ~dHeapReferenceTable();
+    
+    dHeapReference searchByPointer(d_pointer& pointerToFind);
+    
+    dHeapReference findAfterReference(dHeapReference );
+    dHeapReference findBeforeReference(dHeapReference );
+    
 private:
     
-    std::list<dHeapReference> references;
+    std::vector<dHeapReference> references;
         
 };
 
